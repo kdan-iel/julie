@@ -16,7 +16,7 @@ export const weddingContent = {
     time: '10h00',
     isoDate: '2026-09-12T10:00:00',
     year: '2026',
-    locationShort: 'Provence, France',
+    locationShort: 'Lome, Togo',
     civil: {
       label: 'Mariage Civil',
       formatted: 'Jeudi 10 Septembre 2026',
