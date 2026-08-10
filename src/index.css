@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-red: #A4193D;
+    --color-red-light: #C94F63;
+    --color-red-dark: #7A1230;
+    --color-champagne: #F7F1E8;
+    --color-offwhite: #FBF8F3;
+    --color-sage: #4B5842;
+    --color-sage-dark: #333D2C;
+    --color-muted-olive: #6B7355;
+    --color-charcoal: #1F1A18;
+  }
+
+  body {
+    font-family: 'Marcellus', 'Josefin Sans', serif;
+    color: var(--color-charcoal);
+    background-color: var(--color-offwhite);
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  }
+
+  .font-marcellus {
+    font-family: 'Marcellus', serif;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF8F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #A4193D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7A1230;
+}
+
+/* Shimmer & Glow Effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #7A1230 0%, #A4193D 35%, #FBEEE9 50%, #A4193D 70%, #5C0F22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(164, 25, 61, 0.25);
+}
+
+.glass-panel {
+  background: rgba(250, 247, 242, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(164, 25, 61, 0.25);
+}
+
+.glass-panel-dark {
+  background: rgba(51, 61, 44, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(164, 25, 61, 0.3);
+}
+
+/* Outer frame effect for editorial theme */
+.editorial-frame {
+  border: 8px solid #F7F1E8;
+}
+
+/* Float Animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Mariage Edwin & Julie",
+  "description": "Invitation de mariage immersive 3D avec parcours interactif, timeline, événements, galerie et RSVP pour Edwin & Julie.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
