@@ -194,42 +194,8 @@ export function RSVPSection() {
                   />
                 </div>
 
-                {formData.attending === 'yes' && (
-                  <>
-                    {/* Guest Count */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-xs uppercase tracking-widest text-[#A4193D] mb-2 font-medium">
-                          {weddingContent.rsvp.fields.guestCount}
-                        </label>
-                        <select
-                          value={formData.guestCount}
-                          onChange={(e) => setFormData({ ...formData, guestCount: Number(e.target.value) })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#333D2C] border border-white/20 text-[#FBF8F3] focus:outline-none focus:border-[#A4193D] transition-colors"
-                        >
-                          <option value={1}>1 Personne</option>
-                          <option value={2}>2 Personnes</option>
-                          <option value={3}>3 Personnes</option>
-                          <option value={4}>4 Personnes</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs uppercase tracking-widest text-[#A4193D] mb-2 font-medium">
-                          {weddingContent.rsvp.fields.menuChoice}
-                        </label>
-                        <select
-                          value={formData.menuChoice}
-                          onChange={(e) => setFormData({ ...formData, menuChoice: e.target.value as any })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#333D2C] border border-white/20 text-[#FBF8F3] focus:outline-none focus:border-[#A4193D] transition-colors"
-                        >
-                          <option value="classic">{weddingContent.rsvp.fields.menuClassic}</option>
-                          <option value="vegetarian">{weddingContent.rsvp.fields.menuVegetarian}</option>
-                          <option value="child">{weddingContent.rsvp.fields.menuChild}</option>
-                        </select>
-                      </div>
-                    </div>
-
+              
+                
                     {/* Accompanying Guest Names */}
                     {formData.guestCount > 1 && (
                       <div>
@@ -245,36 +211,7 @@ export function RSVPSection() {
                         />
                       </div>
                     )}
-
-                    {/* Dietary Restrictions */}
-                    <div>
-                      <label className="block text-xs uppercase tracking-widest text-[#A4193D] mb-2 font-medium">
-                        {weddingContent.rsvp.fields.dietaryRestrictions}
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.dietaryRestrictions}
-                        onChange={(e) => setFormData({ ...formData, dietaryRestrictions: e.target.value })}
-                        placeholder="Sans gluten, végétalien, allergies..."
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-[#FBF8F3] placeholder-white/40 focus:outline-none focus:border-[#A4193D] transition-colors"
-                      />
-                    </div>
-
-                    {/* Song Request */}
-                    <div>
-                      <label className="block text-xs uppercase tracking-widest text-[#A4193D] mb-2 font-medium">
-                        {weddingContent.rsvp.fields.songRequest}
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.songRequest}
-                        onChange={(e) => setFormData({ ...formData, songRequest: e.target.value })}
-                        placeholder="Ex: Earth, Wind & Fire - September"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-[#FBF8F3] placeholder-white/40 focus:outline-none focus:border-[#A4193D] transition-colors"
-                      />
-                    </div>
-                  </>
-                )}
+                 )
 
                 {/* Personal Message */}
                 <div>
@@ -305,7 +242,7 @@ export function RSVPSection() {
                     </>
                   )}
                 </button>
-              </motion.form>
+              <motion.form/>
             ) : (
               /* Confirmation Screen */
               <motion.div
@@ -346,9 +283,9 @@ export function RSVPSection() {
                 </button>
               </motion.div>
             )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
+          <AnimatePresence/>
+        <div/>
+      <div/>
+    <section/>
   );
 }

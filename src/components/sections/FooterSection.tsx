@@ -46,8 +46,8 @@ export function FooterSection({ onScrollToTop }: FooterSectionProps) {
           </p>
           <div className="flex items-center justify-center gap-2 text-xs text-[#A4193D]">
             <Mail className="w-3.5 h-3.5" />
-            <a href="mailto:contact@edwin-julie-2026.com" className="hover:underline">
-              contact@edwin-julie-2026.com
+            <a href="mailto:iletouakpo@gmail.com" className="hover:underline">
+              iletouakpo@gmail.com
             </a>
           </div>
         </div>
