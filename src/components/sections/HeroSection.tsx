@@ -26,13 +26,11 @@ function computeTimeLeft(isoDate: string): TimeLeft {
 }
 
 export function HeroSection({ onNavigate }: HeroSectionProps) {
-  // Countdown state for both ceremonies
-  const [civilTimeLeft, setCivilTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  // Countdown for the wedding day
   const [religieuxTimeLeft, setReligieuxTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const updateCountdown = () => {
-      setCivilTimeLeft(computeTimeLeft(weddingContent.date.civil.isoDate));
       setReligieuxTimeLeft(computeTimeLeft(weddingContent.date.religieux.isoDate));
     };
 
@@ -127,65 +125,40 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           <span>{weddingContent.venue.name}, {weddingContent.date.locationShort}</span>
         </motion.div>
 
-        {/* Live Countdown Timers — Civil & Religieux */}
+        {/* Live Countdown Timer */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10"
+          className="flex items-center justify-center mb-10"
         >
-          {[
-            { label: weddingContent.date.civil.label, dateShort: weddingContent.date.civil.shortDate, time: civilTimeLeft },
-            { label: weddingContent.date.religieux.label, dateShort: weddingContent.date.religieux.shortDate, time: religieuxTimeLeft },
-          ].map((ceremony) => (
-            <div
-              key={ceremony.label}
-              className="p-5 sm:p-6 rounded-none bg-[#FBF8F3] border border-[#A4193D]/40 shadow-xs"
-            >
-              <div className="text-center mb-3">
-                <span className="text-[10px] uppercase tracking-[0.35em] text-[#A4193D] font-semibold block">
-                  {ceremony.label}
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-medium">
-                  {ceremony.dateShort}
-                </span>
-              </div>
-              <div className="grid grid-cols-4 gap-3 sm:gap-5">
-                <div className="flex flex-col items-center min-w-[52px]">
-                  <span className="font-playfair text-xl sm:text-3xl font-normal text-[#1F1A18]">
-                    {ceremony.time.days}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-semibold mt-1">
-                    Jours
-                  </span>
-                </div>
-                <div className="flex flex-col items-center min-w-[52px]">
-                  <span className="font-playfair text-xl sm:text-3xl font-normal text-[#1F1A18]">
-                    {ceremony.time.hours}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-semibold mt-1">
-                    Heures
-                  </span>
-                </div>
-                <div className="flex flex-col items-center min-w-[52px]">
-                  <span className="font-playfair text-xl sm:text-3xl font-normal text-[#1F1A18]">
-                    {ceremony.time.minutes}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-semibold mt-1">
-                    Minutes
-                  </span>
-                </div>
-                <div className="flex flex-col items-center min-w-[52px]">
-                  <span className="font-playfair text-xl sm:text-3xl font-normal text-[#A4193D]">
-                    {ceremony.time.seconds}
-                  </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-semibold mt-1">
-                    Secondes
-                  </span>
-                </div>
-              </div>
+          <div className="p-5 sm:p-6 rounded-none bg-[#FBF8F3] border border-[#A4193D]/40 shadow-xs">
+            <div className="text-center mb-3">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[#A4193D] font-semibold block">
+                {weddingContent.date.religieux.label}
+              </span>
+              <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-medium">
+                {weddingContent.date.religieux.shortDate}
+              </span>
             </div>
-          ))}
+            <div className="grid grid-cols-4 gap-3 sm:gap-5">
+              {[
+                ['Jours', religieuxTimeLeft.days],
+                ['Heures', religieuxTimeLeft.hours],
+                ['Minutes', religieuxTimeLeft.minutes],
+                ['Secondes', religieuxTimeLeft.seconds],
+              ].map(([label, value]) => (
+                <div key={label} className="flex flex-col items-center min-w-[52px]">
+                  <span className="font-playfair text-xl sm:text-3xl font-normal text-[#1F1A18]">
+                    {value}
+                  </span>
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#6B7355] font-semibold mt-1">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -196,16 +169,16 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           className="flex flex-col sm:flex-row items-center justify-center gap-5 max-w-md mx-auto"
         >
           <button
+            onClick={() => onNavigate('histoire')}
+            className="w-full sm:w-auto px-8 py-3.5 bg-[#A4193D] text-white border border-[#A4193D] text-[10px] uppercase tracking-[0.3em] font-semibold hover:bg-[#7A1230] transition-all duration-300 cursor-pointer"
+          >
+            {weddingContent.hero.ctaStory}
+          </button>
+          <button
             onClick={() => onNavigate('rsvp')}
             className="w-full sm:w-auto px-8 py-3.5 border border-[#A4193D] text-[#A4193D] text-[10px] uppercase tracking-[0.3em] font-semibold hover:bg-[#A4193D] hover:text-white transition-all duration-300 cursor-pointer"
           >
             {weddingContent.hero.ctaRsvp}
-          </button>
-          <button
-            onClick={() => onNavigate('histoire')}
-            className="w-full sm:w-auto px-8 py-3.5 border border-[#6B7355]/30 text-[#1F1A18] text-[10px] uppercase tracking-[0.3em] font-semibold hover:border-[#A4193D] transition-all duration-300 cursor-pointer"
-          >
-            {weddingContent.hero.ctaStory}
           </button>
         </motion.div>
       </div>

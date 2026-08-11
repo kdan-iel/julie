@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles } from 'lucide-react';
+import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles, Gift } from 'lucide-react';
 import { weddingContent } from '../../config/weddingContent';
 import { EventDetail } from '../../types';
 
@@ -41,7 +41,7 @@ export function Programme() {
           </p>
         </div>
 
-        {/* Dress Code Highlight Box */}
+        {/* Color Theme Highlight Box */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,15 +54,12 @@ export function Programme() {
             </div>
             <div>
               <h3 className="font-serif-display text-2xl font-semibold text-[#C94F63]">
-                {weddingContent.events.dressCode.title}
+                {weddingContent.events.colorTheme.title}
               </h3>
               <p className="text-sm text-[#FBF8F3]/80 font-light mt-1">
-                {weddingContent.events.dressCode.description}
+                {weddingContent.events.colorTheme.description}
               </p>
             </div>
-          </div>
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#A4193D] font-semibold bg-[#A4193D]/10 px-4 py-2 rounded-full border border-[#A4193D]/30">
-            Chic & Champêtre
           </div>
         </motion.div>
 
@@ -118,6 +115,39 @@ export function Programme() {
           })}
         </div>
 
+        {/* Gifts & Online Fund */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-16 rounded-3xl glass-panel border border-[#A4193D]/30 p-8 md:p-10 shadow-xl bg-white/80"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="shrink-0 p-4 rounded-full bg-[#A4193D]/10 text-[#A4193D]">
+              <Gift className="w-7 h-7" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="font-serif-display text-3xl font-bold text-[#2C2A29] mb-3">
+                {weddingContent.gifts.title}
+              </h3>
+              <p className="text-sm text-[#2C2A29]/80 font-light leading-relaxed">
+                {weddingContent.gifts.description}
+              </p>
+            </div>
+            {weddingContent.gifts.onlineFundUrl && (
+              <a
+                href={weddingContent.gifts.onlineFundUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#4B5842] text-[#FBF8F3] text-xs uppercase tracking-widest font-semibold hover:bg-[#333D2C] transition-all"
+              >
+                {weddingContent.gifts.onlineFundLabel}
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+        </motion.div>
+
         {/* Venue Location & Map Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -128,7 +158,7 @@ export function Programme() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] font-semibold text-[#A4193D]">
-                Le Lieu de Réception
+                Lieu du rassemblement
               </span>
               <h3 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#2C2A29] mt-2 mb-4">
                 {weddingContent.venue.name}
@@ -143,16 +173,18 @@ export function Programme() {
                 </div>
               </div>
 
-              <a
-                href={weddingContent.venue.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#4B5842] text-[#FBF8F3] text-xs uppercase tracking-widest font-semibold hover:bg-[#333D2C] transition-all shadow-md hover:shadow-xl"
-              >
-                <Navigation className="w-4 h-4 text-[#A4193D]" />
-                <span>Ouvrir dans Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-              </a>
+              {weddingContent.venue.googleMapsUrl && (
+                <a
+                  href={weddingContent.venue.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#4B5842] text-[#FBF8F3] text-xs uppercase tracking-widest font-semibold hover:bg-[#333D2C] transition-all shadow-md hover:shadow-xl"
+                >
+                  <Navigation className="w-4 h-4 text-[#A4193D]" />
+                  <span>Ouvrir dans Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+              )}
             </div>
 
             {/* Interactive Venue Graphic Frame */}
