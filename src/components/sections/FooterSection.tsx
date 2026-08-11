@@ -67,7 +67,7 @@ export function FooterSection({ onScrollToTop }: FooterSectionProps) {
           <span className="flex items-center gap-1 text-[#A4193D]">
             <span>Créé avec amour pour</span>
             <Heart className="w-3 h-3 fill-[#A4193D]" />
-            <span>Edwin & Julie</span>
+            <span>Edwin & Ilétou</span>
           </span>
         </div>
       </div>

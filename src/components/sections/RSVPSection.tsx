@@ -57,7 +57,7 @@ export function RSVPSection() {
       setIsSubmitting(false);
       setIsSubmitted(true);
       localStorage.setItem(
-        'edwin_julie_rsvp',
+        'edwin_ilétou_rsvp',
         JSON.stringify(formData)
       );
       triggerConfetti();

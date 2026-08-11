@@ -82,7 +82,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                 className="font-serif-display text-4xl font-light tracking-widest"
                 fill="url(#goldGradPreloader)"
               >
-                E & J
+                E & I
               </text>
 
               <defs>
@@ -111,7 +111,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             transition={{ delay: 0.5 }}
             className="font-serif-display text-2xl md:text-3xl text-[#2C2A29] font-normal mb-8 gold-gradient-text"
           >
-            Edwin & Julie
+            Edwin & Ilétou
           </motion.h2>
 
           {/* Progress Bar */}
