@@ -4,7 +4,7 @@ import { TimelineMilestone, EventDetail, GalleryItem } from '../types';
 export const weddingContent = {
   couple: {
     groom: 'Sir Edwin',
-    bride: 'Miss Ilétou',
+    bride: 'Lady Ilétou',
     monogram: 'E & I',
     subheading: 'Célèbrent leur union',
   },
@@ -36,7 +36,7 @@ export const weddingContent = {
   },
   hero: {
     eyebrow: 'Nous avons la joie de vous inviter à notre mariage',
-    title: 'Sir Edwin & Miss Ilétou',
+    title: 'Sir Edwin & Lady Ilétou',
     dateBadge: '12 SEPTEMBRE 2026',
     venueBadge: 'LOMÉ, TOGO',
     ctaRsvp: 'Confirmer votre présence',
@@ -73,7 +73,7 @@ export const weddingContent = {
         title: 'Le Grand Jour',
         location: 'Lomé, Togo',
         description: 'Nous sommes impatients de sceller notre amour entourés de nos familles et amis les plus chers.',
-        imageUrl: '/photos/couple.jpeg',
+        imageUrl: '/photos/tgt.jpeg',
       },
     ] as TimelineMilestone[],
   },
@@ -101,7 +101,7 @@ export const weddingContent = {
         title: 'Rafraîchissement',
         locationName: 'Lomé, Togo',
         address: 'Lieu du rassemblement',
-        description: 'Un temps convivial autour de rafraîchissements pour prolonger la célébration ensemble.',
+        description: 'Un temps convivial autour de rafraîchissements juste après la cérémonie.',
         iconName: 'cheers',
       },
     ] as EventDetail[],
@@ -156,7 +156,7 @@ export const weddingContent = {
   },
   gifts: {
     title: 'Cadeaux & Cagnotte',
-    description: 'Votre présence est déjà un précieux cadeau. Si vous souhaitez nous faire plaisir, les cadeaux physiques sont les bienvenus. Vous pouvez également participer à notre cagnotte en ligne pour notre mariage.',
+    description: 'Vous êtes nombreux à faire le déplacement, parfois de très loin, pour partager avec nous ce moment si précieux et célébrer notre union. Votre présence à nos côtés constitue à elle seule le plus beau des cadeaux et nous comble de bonheur. Toutefois, si vous souhaitez également nous témoigner votre affection à travers une attention particulière, vous pourrez, selon votre convenance, participer à notre cagnotte de la manière qui vous sera la plus simple, par virement bancaire, transfert d\'argent via Mix, Payas ou Mov Money, ou encore par un cadeau physique. Quelle que soit la forme choisie, votre geste nous touchera profondément et restera précieux à nos yeux. Avec toute notre gratitude et notre affection, merci de célébrer cet amour avec nous.',
     onlineFundUrl: '',
     onlineFundLabel: 'Participer à la cagnotte en ligne',
   },

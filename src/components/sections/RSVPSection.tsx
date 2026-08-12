@@ -5,6 +5,11 @@ import { Check, Send } from 'lucide-react';
 import { weddingContent } from '../../config/weddingContent';
 import type { RSVPFormData } from '../../types';
 
+const RSVP_RECIPIENT = 'iletouakpo@gmail.com';
+const RSVP_ENDPOINT =
+  import.meta.env.VITE_RSVP_ENDPOINT ||
+  `https://formsubmit.co/ajax/${RSVP_RECIPIENT}`;
+
 export function RSVPSection() {
   const [formData, setFormData] = useState<RSVPFormData>({
     lastName: '',
@@ -22,6 +27,7 @@ export function RSVPSection() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('edwin_julie_rsvp');
@@ -49,17 +55,52 @@ export function RSVPSection() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch(RSVP_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `RSVP mariage — ${formData.firstName} ${formData.lastName}`,
+          _template: 'table',
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          _replyto: formData.email,
+          attending: formData.attending === 'yes' ? 'Présent(e)' : 'Absent(e)',
+          guestCount: formData.guestCount,
+          guestNames: formData.guestNames || 'Aucun',
+          dietaryRestrictions: formData.dietaryRestrictions || 'Aucune',
+          menuChoice: formData.menuChoice,
+          shuttleNeeded: formData.shuttleNeeded ? 'Oui' : 'Non',
+          songRequest: formData.songRequest || 'Aucune',
+          message: formData.message || 'Aucun message',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('RSVP delivery failed');
+      }
+    } catch (error) {
+      console.error('RSVP delivery error', error);
+      setSubmitError(
+        "L’envoi n’a pas abouti. Vérifiez votre connexion puis réessayez."
+      );
+      setIsSubmitting(false);
+      return;
+    }
 
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      localStorage.setItem(
-        'edwin_ilétou_rsvp',
-        JSON.stringify(formData)
-      );
+      localStorage.setItem('edwin_julie_rsvp', JSON.stringify(formData));
       triggerConfetti();
     }, 1200);
   };
@@ -301,6 +342,12 @@ export function RSVPSection() {
                     </>
                   )}
                 </button>
+
+                {submitError && (
+                  <p role="alert" className="text-center text-sm text-red-200">
+                    {submitError}
+                  </p>
+                )}
               </motion.form>
             ) : (
               /* Confirmation Screen */
@@ -365,4 +412,3 @@ export function RSVPSection() {
     </section>
   );
 }
-

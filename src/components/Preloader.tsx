@@ -45,7 +45,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
           {/* Subtle radial glow */}
           <div className="absolute inset-0 bg-radial from-[#F7F1E8]/60 via-transparent to-transparent pointer-events-none" />
 
-          {/* SVG Monogram E & J with Stroke Draw */}
+          {/* SVG Monogram E & I with Stroke Draw */}
           <div className="relative w-40 h-40 mb-6 flex items-center justify-center">
             <svg viewBox="0 0 200 200" className="w-full h-full text-[#A4193D]">
               {/* Outer Decorative Oval Frame */}
