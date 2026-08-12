@@ -22,7 +22,7 @@ export const weddingContent = {
     },
   },
   venue: {
-    name: 'Lieu du rafraîchissement',
+    name: 'Winner\'s Chapel International Lomé Aeroport',
     address: 'Lomé, Togo',
     city: 'Lomé, Togo',
     googleMapsUrl: 'https://maps.app.goo.gl/mM4XaDG3Au15DqHUA',
@@ -84,6 +84,11 @@ export const weddingContent = {
     colorTheme: {
       title: 'Thème de couleurs',
       description: 'Nous vous invitons simplement à porter une touche de vert sauge, de rouge intense ou de blanc ivoire dans votre tenue.',
+      swatches: [
+        { label: 'Blanc ivoire', color: '#FBF8F3', borderColor: '#D9CEBD' },
+        { label: 'Vert sauge', color: '#4B5842' },
+        { label: 'Rouge intense', color: '#A4193D' },
+      ],
     },
     items: [
       {
@@ -157,6 +162,20 @@ export const weddingContent = {
   gifts: {
     title: 'Cadeaux & Cagnotte',
     description: 'Votre présence à nos côtés pour célébrer notre union est déjà le plus beau des cadeaux. Si vous souhaitez toutefois nous témoigner votre affection par une attention particulière, vous pourrez le faire selon votre convenance, à travers une contribution à notre cagnotte, un cadeau ou tout autre geste qui vous fera plaisir. Quelle que soit sa forme, votre attention nous touchera profondément et restera précieuse à nos yeux. Merci de partager avec nous ce merveilleux moment.',
+    transferDetails: [
+      {
+        provider: 'Mixx by Yas',
+        label: 'Code de transfert mobile',
+        value: '*145*1*1*montant*70880488*1ou2*code secret#',
+        helpText: 'Remplacez « montant » et « code secret » par vos informations.',
+      },
+      {
+        provider: 'Ecobank',
+        label: 'N° de compte',
+        value: '141793402001',
+        helpText: 'Virement ou dépôt sur ce compte.',
+      },
+    ],
     onlineFundUrl: '',
     onlineFundLabel: 'Participer à la cagnotte en ligne',
   },

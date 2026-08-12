@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles, Gift } from 'lucide-react';
+import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles, Gift, Copy, Check } from 'lucide-react';
 import { weddingContent } from '../../config/weddingContent';
 import { EventDetail } from '../../types';
 
@@ -23,6 +23,17 @@ function getIconComponent(iconName: EventDetail['iconName']) {
 
 export function Programme() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [copiedTransfer, setCopiedTransfer] = useState<string | null>(null);
+
+  const copyTransferDetail = async (provider: string, value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopiedTransfer(provider);
+      window.setTimeout(() => setCopiedTransfer(null), 2000);
+    } catch (error) {
+      console.error('Unable to copy transfer detail', error);
+    }
+  };
 
   return (
     <section id="programme" className="py-24 px-6 relative bg-[#F7F1E8]/40 overflow-hidden">
@@ -60,6 +71,31 @@ export function Programme() {
                 {weddingContent.events.colorTheme.description}
               </p>
             </div>
+          </div>
+          <div
+            className="flex items-center gap-3"
+            role="list"
+            aria-label="Palette de couleurs du thème"
+          >
+            {weddingContent.events.colorTheme.swatches.map((swatch) => (
+              <div
+                key={swatch.label}
+                className="flex flex-col items-center gap-1.5"
+                role="listitem"
+              >
+                <span
+                  className="h-8 w-8 rounded-full shadow-md ring-2 ring-white/25"
+                  style={{
+                    backgroundColor: swatch.color,
+                    border: `1px solid ${swatch.borderColor ?? swatch.color}`,
+                  }}
+                  aria-hidden="true"
+                />
+                <span className="text-[9px] uppercase tracking-wide text-[#FBF8F3]/70 whitespace-nowrap">
+                  {swatch.label}
+                </span>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -133,6 +169,44 @@ export function Programme() {
               <p className="text-sm text-[#2C2A29]/80 font-light leading-relaxed">
                 {weddingContent.gifts.description}
               </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 text-left">
+                {weddingContent.gifts.transferDetails.map((detail) => {
+                  const isCopied = copiedTransfer === detail.provider;
+
+                  return (
+                    <div
+                      key={detail.provider}
+                      className="rounded-2xl border border-[#A4193D]/20 bg-[#FBF8F3]/80 p-4"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A4193D]">
+                            {detail.provider}
+                          </p>
+                          <p className="mt-1 text-xs text-[#2C2A29]/65">
+                            {detail.label}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => copyTransferDetail(detail.provider, detail.value)}
+                          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#4B5842]/25 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#4B5842] transition-colors hover:bg-[#4B5842] hover:text-[#FBF8F3]"
+                          aria-label={`Copier ${detail.label} ${detail.provider}`}
+                        >
+                          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                          {isCopied ? 'Copié' : 'Copier'}
+                        </button>
+                      </div>
+                      <p className="mt-3 break-all font-mono text-sm font-semibold text-[#2C2A29]">
+                        {detail.value}
+                      </p>
+                      <p className="mt-2 text-xs leading-relaxed text-[#2C2A29]/65">
+                        {detail.helpText}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             {weddingContent.gifts.onlineFundUrl && (
               <a
