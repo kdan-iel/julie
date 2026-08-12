@@ -26,7 +26,7 @@ export const weddingContent = {
     address: 'Lomé, Togo',
     city: 'Lomé, Togo',
     googleMapsUrl: 'https://maps.app.goo.gl/mM4XaDG3Au15DqHUA',
-    imageUrl: '/photos/lieu.jpg',
+    imageUrl: '/photos/wci.jpeg',
     coordinates: { lat: 6.3344, lng: 1.2178 },
   },
   preloader: {
@@ -156,7 +156,7 @@ export const weddingContent = {
   },
   gifts: {
     title: 'Cadeaux & Cagnotte',
-    description: 'Vous êtes nombreux à faire le déplacement, parfois de très loin, pour partager avec nous ce moment si précieux et célébrer notre union. Votre présence à nos côtés constitue à elle seule le plus beau des cadeaux et nous comble de bonheur. Toutefois, si vous souhaitez également nous témoigner votre affection à travers une attention particulière, vous pourrez, selon votre convenance, participer à notre cagnotte de la manière qui vous sera la plus simple, par virement bancaire, transfert d\'argent via Mix, Payas ou Mov Money, ou encore par un cadeau physique. Quelle que soit la forme choisie, votre geste nous touchera profondément et restera précieux à nos yeux. Avec toute notre gratitude et notre affection, merci de célébrer cet amour avec nous.',
+    description: 'Votre présence à nos côtés pour célébrer notre union est déjà le plus beau des cadeaux. Si vous souhaitez toutefois nous témoigner votre affection par une attention particulière, vous pourrez le faire selon votre convenance, à travers une contribution à notre cagnotte, un cadeau ou tout autre geste qui vous fera plaisir. Quelle que soit sa forme, votre attention nous touchera profondément et restera précieuse à nos yeux. Merci de partager avec nous ce merveilleux moment.',
     onlineFundUrl: '',
     onlineFundLabel: 'Participer à la cagnotte en ligne',
   },
