@@ -38,7 +38,7 @@ export const weddingContent = {
   hero: {
     invitation: 'Ont le plaisir de vous inviter à leur cérémonie de bénédiction nuptiale',
     ceremonyDate: 'Le samedi 12 septembre 2026',
-    coupleImageUrl: '/photos/hero-couple.jpg',
+    coupleImageUrl: '/photos/couple.jpeg',
     venueBadge: 'LOMÉ, TOGO',
     ctaRsvp: 'Confirmer votre présence',
     ctaStory: 'Découvrir notre histoire',
@@ -167,6 +167,12 @@ export const weddingContent = {
         value: '141793402001',
         helpText: 'Virement ou dépôt sur ce compte.',
       },
+      {
+        provider: 'Paypal',
+        label: 'N° de payement en ligne',
+        value: '+3375293939982',
+        helpText: 'Effectuez votre virement en ligne sur ce numéro.',
+      }
     ],
     onlineFundUrl: '',
     onlineFundLabel: 'Participer à la cagnotte en ligne',
