@@ -106,3 +106,7 @@
 .animate-pulse-glow {
   animation: pulseGlow 3s ease-in-out infinite;
 }
+
+.hero-photo-placeholder > span {
+  display: flex;
+}

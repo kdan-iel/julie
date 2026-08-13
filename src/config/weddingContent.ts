@@ -23,6 +23,7 @@ export const weddingContent = {
   },
   venue: {
     name: 'Winner\'s Chapel International Lomé Aeroport',
+    description: 'La cérémonie de bénédiction nuptiale se tiendra à Winner\'s Chapel International Lomé Aeroport.',
     address: 'Lomé, Togo',
     city: 'Lomé, Togo',
     googleMapsUrl: 'https://maps.app.goo.gl/mM4XaDG3Au15DqHUA',
@@ -35,9 +36,9 @@ export const weddingContent = {
     subtitle: 'Veuillez patienter pendant le chargement de notre univers...',
   },
   hero: {
-    eyebrow: 'Nous avons la joie de vous inviter à notre mariage',
-    title: 'Sir Edwin & Lady Ilétou',
-    dateBadge: '12 SEPTEMBRE 2026',
+    invitation: 'Ont le plaisir de vous inviter à leur cérémonie de bénédiction nuptiale',
+    ceremonyDate: 'Le samedi 12 septembre 2026',
+    coupleImageUrl: '/photos/hero-couple.jpg',
     venueBadge: 'LOMÉ, TOGO',
     ctaRsvp: 'Confirmer votre présence',
     ctaStory: 'Découvrir notre histoire',
@@ -81,20 +82,11 @@ export const weddingContent = {
     eyebrow: 'Déroulement de la Journée',
     title: 'Programme & Informations',
     subtitle: 'Tous les détails essentiels pour vivre ce moment à nos côtés.',
-    colorTheme: {
-      title: 'Thème de couleurs',
-      description: 'Nous vous invitons simplement à porter une touche de vert sauge, de rouge intense ou de blanc ivoire dans votre tenue.',
-      swatches: [
-        { label: 'Blanc ivoire', color: '#FBF8F3', borderColor: '#D9CEBD' },
-        { label: 'Vert sauge', color: '#4B5842' },
-        { label: 'Rouge intense', color: '#A4193D' },
-      ],
-    },
     items: [
       {
         id: 'ceremony',
         time: '10h00',
-        title: 'Cérémonie nuptiale',
+        title: 'Cérémonie de bénédiction nuptiale',
         locationName: 'Lomé, Togo',
         address: 'Les informations pratiques seront communiquées aux invités.',
         description: 'Un moment de bénédiction et de célébration de notre union avec nos familles et nos proches.',
@@ -106,7 +98,7 @@ export const weddingContent = {
         title: 'Rafraîchissement',
         locationName: 'Lomé, Togo',
         address: 'Lieu du rassemblement',
-        description: 'Un temps convivial autour de rafraîchissements juste après la cérémonie.',
+        description: 'Petit cocktail servi juste après la fin de la cérémonie.',
         iconName: 'cheers',
       },
     ] as EventDetail[],
@@ -161,7 +153,7 @@ export const weddingContent = {
   },
   gifts: {
     title: 'Cadeaux & Cagnotte',
-    description: 'Votre présence à nos côtés pour célébrer notre union est déjà le plus beau des cadeaux. Si vous souhaitez toutefois nous témoigner votre affection par une attention particulière, vous pourrez le faire selon votre convenance, à travers une contribution à notre cagnotte, un cadeau ou tout autre geste qui vous fera plaisir. Quelle que soit sa forme, votre attention nous touchera profondément et restera précieuse à nos yeux. Merci de partager avec nous ce merveilleux moment.',
+    description: 'Votre présence est de loin pour nous le plus beau des cadeaux. Toutefois, si vous souhaitez ajouter de la lumière à notre journée par un cadeau matériel, sentez-vous libre de le faire selon votre convenance. Si votre contribution est financière, vous pouvez participer à notre cagnotte par les différents moyens ci-dessous. Quel que soit le geste d’amour que vous aurez choisi de nous témoigner, il reste précieux à nos yeux.',
     transferDetails: [
       {
         provider: 'Mixx by Yas',

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, MapPin, ChevronDown, Heart } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { weddingContent } from '../../config/weddingContent';
+import { HeartDecoration } from '../HeartDecoration';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
@@ -39,11 +40,9 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     return () => clearInterval(interval);
   }, []);
 
-  const titleLettersGroom = weddingContent.couple.groom.split('');
-  const titleLettersBride = weddingContent.couple.bride.split('');
-
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 overflow-hidden border-b border-[#F7F1E8]">
+      <HeartDecoration />
       {/* Editorial geometric ring accents */}
       <div className="absolute inset-0 opacity-25 pointer-events-none -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[450px] h-[450px] rounded-full border border-[#A4193D]" />
@@ -63,73 +62,56 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
       {/* Main Content Area */}
       <div className="max-w-5xl mx-auto w-full my-auto text-center z-20">
-        {/* Eyebrow badge / date phrase */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
+        <motion.h1
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6"
+          className="font-serif-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] text-[#1F1A18] mb-7"
         >
-          <span className="text-[11px] uppercase tracking-[0.6em] text-[#6B7355] block text-center font-semibold">
-            {weddingContent.hero.eyebrow}
+          <span className="block">Sir Edwin</span>
+          <span className="block text-[#A4193D] italic text-[0.58em] leading-none my-1">&amp;</span>
+          <span className="block">Lady Ilétou</span>
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.35 }}
+          className="mx-auto mb-7 aspect-[4/3] w-full max-w-sm overflow-hidden rounded-[2rem] border-8 border-[#F7F1E8] bg-[#EDE2D3] shadow-xl"
+        >
+          <img
+            src={weddingContent.hero.coupleImageUrl}
+            alt="Sir Edwin et Lady Ilétou"
+            className="h-full w-full object-cover"
+            onError={(event) => {
+              event.currentTarget.style.display = 'none';
+              event.currentTarget.parentElement?.classList.add('hero-photo-placeholder');
+            }}
+          />
+          <span className="hidden h-full items-center justify-center px-8 text-center text-xs uppercase tracking-[0.24em] text-[#6B7355]">
+            Ajoutez votre photo dans public/photos/hero-couple.jpg
           </span>
         </motion.div>
 
-        {/* Edwin & Julie Big Bold Editorial Display Title */}
-        <h1 className="font-playfair text-6xl sm:text-8xl md:text-9xl lg:text-[130px] leading-[0.85] text-[#1F1A18] tracking-tight mb-8">
-          <span className="inline-block">
-            {titleLettersGroom.map((letter, idx) => (
-              <motion.span
-                key={`groom-${idx}`}
-                initial={{ opacity: 0, y: 30, rotateX: 60 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 + idx * 0.06, ease: [0.215, 0.61, 0.355, 1] }}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </span>
-          <motion.span
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="inline-block mx-3 md:mx-6 text-[#A4193D] font-serif italic"
-          >
-            &
-          </motion.span>
-          <span className="inline-block">
-            {titleLettersBride.map((letter, idx) => (
-              <motion.span
-                key={`bride-${idx}`}
-                initial={{ opacity: 0, y: 30, rotateX: 60 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 + idx * 0.06, ease: [0.215, 0.61, 0.355, 1] }}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </span>
-        </h1>
-
-        {/* Date & Location Editorial Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-[11px] uppercase tracking-[0.5em] text-[#6B7355] text-center font-semibold mb-10 flex flex-wrap items-center justify-center gap-3"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mx-auto mb-8 max-w-xl text-center"
         >
-          <span>{weddingContent.date.formatted}</span>
-          <span className="text-[#A4193D]">&bull;</span>
-          <span>{weddingContent.venue.name}, {weddingContent.date.locationShort}</span>
+          <p className="font-serif-display text-lg sm:text-xl italic leading-relaxed text-[#2C2A29]">
+            {weddingContent.hero.invitation}
+          </p>
+          <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#A4193D]">
+            {weddingContent.hero.ceremonyDate}
+          </p>
         </motion.div>
 
         {/* Live Countdown Timer */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 0.65 }}
           className="flex items-center justify-center mb-10"
         >
           <div className="p-5 sm:p-6 rounded-none bg-[#FBF8F3] border border-[#A4193D]/40 shadow-xs">
@@ -165,7 +147,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-5 max-w-md mx-auto"
         >
           <button

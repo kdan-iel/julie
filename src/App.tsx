@@ -2,18 +2,17 @@ import { useState, useEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import { Preloader } from './components/Preloader';
 import { Navigation } from './components/Navigation';
-import { Canvas3D } from './components/3d/3dCanvas';
 import { AmbientAudio } from './components/AmbientAudio';
 import { HeroSection } from './components/sections/HeroSection';
 import { NotreHistoire } from './components/sections/NotreHistoire';
 import { Programme } from './components/sections/Programme';
 import { Galerie } from './components/sections/Galerie';
 import { RSVPSection } from './components/sections/RSVPSection';
+import { GiftsSection } from './components/sections/GiftsSection';
 import { FooterSection } from './components/sections/FooterSection';
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
   const [lenisRef, setLenisRef] = useState<Lenis | null>(null);
 
@@ -38,14 +37,7 @@ export default function App() {
     }
     requestAnimationFrame(raf);
 
-    // Track scroll progress across entire document height
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = Math.max(0, Math.min(1, window.scrollY / totalHeight));
-        setScrollProgress(progress);
-      }
-
+      const handleScroll = () => {
       // Determine active section for nav highlighting
       const sections = ['hero', 'histoire', 'programme', 'galerie', 'rsvp'];
       const scrollPos = window.scrollY + 200;
@@ -102,9 +94,6 @@ export default function App() {
 
       {isLoaded && (
         <>
-          {/* Single Persistent 3D Canvas Overlay holding the Traveling Bouquet */}
-          <Canvas3D scrollProgress={scrollProgress} />
-
           {/* Fixed Navigation Header */}
           <Navigation onNavigate={handleNavigate} activeSection={activeSection} />
 
@@ -115,6 +104,7 @@ export default function App() {
             <Programme />
             <Galerie />
             <RSVPSection />
+            <GiftsSection />
           </main>
 
           {/* Footer Section */}

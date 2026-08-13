@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles, Gift, Copy, Check } from 'lucide-react';
+import { Clock, MapPin, Church, Wine, Utensils, Music, Sun, Navigation, ExternalLink, Sparkles } from 'lucide-react';
 import { weddingContent } from '../../config/weddingContent';
 import { EventDetail } from '../../types';
 
@@ -23,17 +23,6 @@ function getIconComponent(iconName: EventDetail['iconName']) {
 
 export function Programme() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [copiedTransfer, setCopiedTransfer] = useState<string | null>(null);
-
-  const copyTransferDetail = async (provider: string, value: string) => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopiedTransfer(provider);
-      window.setTimeout(() => setCopiedTransfer(null), 2000);
-    } catch (error) {
-      console.error('Unable to copy transfer detail', error);
-    }
-  };
 
   return (
     <section id="programme" className="py-24 px-6 relative bg-[#F7F1E8]/40 overflow-hidden">
@@ -51,53 +40,6 @@ export function Programme() {
             {weddingContent.events.subtitle}
           </p>
         </div>
-
-        {/* Color Theme Highlight Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto mb-16 p-6 rounded-2xl glass-panel-dark text-[#FBF8F3] border border-[#A4193D]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6"
-        >
-          <div className="flex items-center gap-4">
-            <div className="p-3.5 rounded-full bg-[#A4193D]/20 text-[#A4193D] border border-[#A4193D]/40">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-serif-display text-2xl font-semibold text-[#C94F63]">
-                {weddingContent.events.colorTheme.title}
-              </h3>
-              <p className="text-sm text-[#FBF8F3]/80 font-light mt-1">
-                {weddingContent.events.colorTheme.description}
-              </p>
-            </div>
-          </div>
-          <div
-            className="flex items-center gap-3"
-            role="list"
-            aria-label="Palette de couleurs du thème"
-          >
-            {weddingContent.events.colorTheme.swatches.map((swatch) => (
-              <div
-                key={swatch.label}
-                className="flex flex-col items-center gap-1.5"
-                role="listitem"
-              >
-                <span
-                  className="h-8 w-8 rounded-full shadow-md ring-2 ring-white/25"
-                  style={{
-                    backgroundColor: swatch.color,
-                    border: `1px solid ${swatch.borderColor ?? swatch.color}`,
-                  }}
-                  aria-hidden="true"
-                />
-                <span className="text-[9px] uppercase tracking-wide text-[#FBF8F3]/70 whitespace-nowrap">
-                  {swatch.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Floating Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -150,77 +92,6 @@ export function Programme() {
             );
           })}
         </div>
-
-        {/* Gifts & Online Fund */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-16 rounded-3xl glass-panel border border-[#A4193D]/30 p-8 md:p-10 shadow-xl bg-white/80"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="shrink-0 p-4 rounded-full bg-[#A4193D]/10 text-[#A4193D]">
-              <Gift className="w-7 h-7" />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="font-serif-display text-3xl font-bold text-[#2C2A29] mb-3">
-                {weddingContent.gifts.title}
-              </h3>
-              <p className="text-sm text-[#2C2A29]/80 font-light leading-relaxed">
-                {weddingContent.gifts.description}
-              </p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 text-left">
-                {weddingContent.gifts.transferDetails.map((detail) => {
-                  const isCopied = copiedTransfer === detail.provider;
-
-                  return (
-                    <div
-                      key={detail.provider}
-                      className="rounded-2xl border border-[#A4193D]/20 bg-[#FBF8F3]/80 p-4"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A4193D]">
-                            {detail.provider}
-                          </p>
-                          <p className="mt-1 text-xs text-[#2C2A29]/65">
-                            {detail.label}
-                          </p>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => copyTransferDetail(detail.provider, detail.value)}
-                          className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#4B5842]/25 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#4B5842] transition-colors hover:bg-[#4B5842] hover:text-[#FBF8F3]"
-                          aria-label={`Copier ${detail.label} ${detail.provider}`}
-                        >
-                          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                          {isCopied ? 'Copié' : 'Copier'}
-                        </button>
-                      </div>
-                      <p className="mt-3 break-all font-mono text-sm font-semibold text-[#2C2A29]">
-                        {detail.value}
-                      </p>
-                      <p className="mt-2 text-xs leading-relaxed text-[#2C2A29]/65">
-                        {detail.helpText}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            {weddingContent.gifts.onlineFundUrl && (
-              <a
-                href={weddingContent.gifts.onlineFundUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#4B5842] text-[#FBF8F3] text-xs uppercase tracking-widest font-semibold hover:bg-[#333D2C] transition-all"
-              >
-                {weddingContent.gifts.onlineFundLabel}
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            )}
-          </div>
-        </motion.div>
 
         {/* Venue Location & Map Card */}
         <motion.div

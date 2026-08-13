@@ -6,7 +6,7 @@ export function AmbientAudio() {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const isSetupRef = useRef(false);
 
-  // Soft romantic ambient synth synthesizer using Web Audio API
+  // A quiet, warm romantic pad using Web Audio API. It starts only after a user click.
   const startAmbientSynth = () => {
     try {
       if (!audioCtxRef.current) {
@@ -20,31 +20,31 @@ export function AmbientAudio() {
       if (isSetupRef.current) return;
 
       const ctx = audioCtxRef.current;
-      // Soft pentatonic chords in E Major
-      const notes = [164.81, 207.65, 246.94, 329.63, 415.30, 493.88]; // E3, G#3, B3, E4, G#4, B4
+      // A soft E-major palette with lower, warmer tones than the previous ambient bed.
+      const notes = [130.81, 164.81, 207.65, 246.94, 329.63, 415.3]; // C3, E3, G#3, B3, E4, G#4
       
       const masterGain = ctx.createGain();
-      masterGain.gain.setValueAtTime(0.08, ctx.currentTime);
+      masterGain.gain.setValueAtTime(0.055, ctx.currentTime);
       masterGain.connect(ctx.destination);
 
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        osc.type = 'sine';
+        osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
         osc.frequency.setValueAtTime(freq, ctx.currentTime);
 
         // LFO for slow breathing volume swell
         const lfo = ctx.createOscillator();
         const lfoGain = ctx.createGain();
         lfo.type = 'sine';
-        lfo.frequency.setValueAtTime(0.1 + idx * 0.03, ctx.currentTime);
-        lfoGain.gain.setValueAtTime(0.02, ctx.currentTime);
+        lfo.frequency.setValueAtTime(0.07 + idx * 0.02, ctx.currentTime);
+        lfoGain.gain.setValueAtTime(0.012, ctx.currentTime);
 
         lfo.connect(lfoGain);
         lfoGain.connect(gain.gain);
 
-        gain.gain.setValueAtTime(0.015, ctx.currentTime);
+        gain.gain.setValueAtTime(0.011, ctx.currentTime);
 
         osc.connect(gain);
         gain.connect(masterGain);
@@ -92,7 +92,7 @@ export function AmbientAudio() {
         {isPlaying ? <Volume2 className="w-4 h-4 animate-pulse" /> : <VolumeX className="w-4 h-4" />}
       </div>
       <span className="text-xs tracking-wider uppercase font-medium text-[#2C2A29]">
-        {isPlaying ? 'Musique active' : 'Ambiance musicale'}
+        {isPlaying ? 'Musique active' : 'Ambiance romantique'}
       </span>
       {isPlaying && (
         <span className="flex items-center gap-0.5 h-3 ml-1">

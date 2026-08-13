@@ -2,6 +2,14 @@ PHOTOS DU MARIAGE
 
 Ajoutez ici les vraies photos des mariés et du lieu.
 
+PHOTO DE PREMIÈRE PAGE
+
+Déposez la photo du couple à afficher au centre de la première page sous le nom :
+- hero-couple.jpg
+
+Vous pouvez aussi utiliser un autre nom ou une URL : mettez alors son chemin dans
+hero.coupleImageUrl, dans src/config/weddingContent.ts.
+
 Noms actuellement utilisés par le code :
 - histoire-01.jpg
 - histoire-02.jpg

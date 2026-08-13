@@ -50,7 +50,7 @@ export function Navigation({ onNavigate, activeSection }: NavigationProps) {
           </span>
           <span className="hidden sm:inline-block w-px h-4 bg-[#A4193D]/40" />
           <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.3em] font-semibold text-[#6B7355]">
-            10 & 12.09.2026
+            12.09.2026
           </span>
         </button>
 
