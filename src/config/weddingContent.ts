@@ -53,8 +53,9 @@ export const weddingContent = {
         id: 'meeting',
         title: 'La Première Rencontre',
         location: 'Lomé, Togo',
+        date: '2017',
         description: 'Un moment simple qui a marqué le début d’une belle histoire. Depuis, notre complicité n’a cessé de grandir.',
-        imageUrl: '/photos/old.jpeg',
+        imageUrl: '/photos/old.jpg',
       },
       {
         id: 'proposal',
