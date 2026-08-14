@@ -90,18 +90,37 @@ export function NotreHistoire() {
   return (
     <section id="histoire" className="py-24 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="text-[11px] uppercase tracking-[0.5em] font-semibold text-[#6B7355] block mb-2">
-            {weddingContent.timeline.eyebrow}
-          </span>
-          <h2 className="font-playfair text-4xl sm:text-5xl font-normal text-[#1F1A18] mt-1 mb-4">
-            {weddingContent.timeline.title}
-          </h2>
-          <div className="w-16 h-[1px] bg-[#A4193D] mx-auto mb-4" />
-          <p className="text-base text-[#1F1A18]/80 font-light leading-relaxed">
-            {weddingContent.timeline.subtitle}
-          </p>
+        {/* Section Header - Image + Translucent Glass Box */}
+        <div className="relative max-w-4xl mx-auto mb-20 overflow-hidden rounded-3xl shadow-xl">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/photos/histoire.jpeg')",
+            }}
+          />
+
+          {/* Subtle overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
+
+          {/* Translucent content box */}
+          <div className="relative m-4 sm:m-6 rounded-2xl bg-[#FAF7F2]/85 backdrop-blur-md border border-white/50 px-6 py-10 sm:px-10 sm:py-12 shadow-lg">
+            <div className="text-center">
+              <span className="text-[11px] uppercase tracking-[0.5em] font-semibold text-[#6B7355] block mb-3">
+                {weddingContent.timeline.eyebrow}
+              </span>
+
+              <h2 className="font-playfair text-4xl sm:text-5xl font-normal text-[#1F1A18] mt-1 mb-6">
+                {weddingContent.timeline.title}
+              </h2>
+
+              <div className="w-16 h-[1px] bg-[#A4193D] mx-auto mb-7" />
+
+              <p className="text-base sm:text-lg text-[#1F1A18]/80 font-light leading-relaxed max-w-2xl mx-auto">
+                {weddingContent.timeline.subtitle}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Vertical Timeline Container */}
