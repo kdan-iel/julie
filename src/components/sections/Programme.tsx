@@ -41,57 +41,7 @@ export function Programme() {
           </p>
         </div>
 
-        {/* Floating Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {weddingContent.events.items.map((event, idx) => {
-            const Icon = getIconComponent(event.iconName);
-
-            return (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                onClick={() => setSelectedCard(selectedCard === event.id ? null : event.id)}
-                className="p-8 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#A4193D]/30 shadow-md hover:shadow-2xl transition-all duration-300 relative group cursor-pointer flex flex-col justify-between"
-              >
-                <div>
-                  {/* Top Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A4193D]/15 text-[#A4193D] font-semibold text-xs tracking-wider">
-                      <Clock className="w-3.5 h-3.5" />
-                      {event.time}
-                    </span>
-                    <div className="p-3 rounded-xl bg-[#4B5842]/10 text-[#4B5842] group-hover:bg-[#4B5842] group-hover:text-[#FBF8F3] transition-colors duration-300">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
-
-                  {/* Title & Location */}
-                  <h3 className="font-serif-display text-2xl font-bold text-[#2C2A29] mb-2 group-hover:text-[#A4193D] transition-colors">
-                    {event.title}
-                  </h3>
-                  <div className="flex items-center gap-1.5 text-xs font-medium text-[#2C2A29]/70 mb-4">
-                    <MapPin className="w-3.5 h-3.5 text-[#A4193D]" />
-                    <span>{event.locationName}</span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-[#2C2A29]/80 font-light leading-relaxed mb-6">
-                    {event.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#EDE2D3]/50 flex items-center justify-between text-xs text-[#A4193D] font-semibold tracking-wider uppercase">
-                  <span>{event.address}</span>
-                  {/* <span className="text-lg">→</span> */}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        
 
         {/* Venue Location & Map Card */}
         <motion.div
@@ -157,6 +107,57 @@ export function Programme() {
             </div>
           </div>
         </motion.div>
+        {/* Floating Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {weddingContent.events.items.map((event, idx) => {
+            const Icon = getIconComponent(event.iconName);
+
+            return (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                onClick={() => setSelectedCard(selectedCard === event.id ? null : event.id)}
+                className="p-8 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#A4193D]/30 shadow-md hover:shadow-2xl transition-all duration-300 relative group cursor-pointer flex flex-col justify-between"
+              >
+                <div>
+                  {/* Top Header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A4193D]/15 text-[#A4193D] font-semibold text-xs tracking-wider">
+                      <Clock className="w-3.5 h-3.5" />
+                      {event.time}
+                    </span>
+                    <div className="p-3 rounded-xl bg-[#4B5842]/10 text-[#4B5842] group-hover:bg-[#4B5842] group-hover:text-[#FBF8F3] transition-colors duration-300">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Title & Location */}
+                  <h3 className="font-serif-display text-2xl font-bold text-[#2C2A29] mb-2 group-hover:text-[#A4193D] transition-colors">
+                    {event.title}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-xs font-medium text-[#2C2A29]/70 mb-4">
+                    <MapPin className="w-3.5 h-3.5 text-[#A4193D]" />
+                    <span>{event.locationName}</span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-[#2C2A29]/80 font-light leading-relaxed mb-6">
+                    {event.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-[#EDE2D3]/50 flex items-center justify-between text-xs text-[#A4193D] font-semibold tracking-wider uppercase">
+                  <span>{event.address}</span>
+                  {/* <span className="text-lg">→</span> */}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
