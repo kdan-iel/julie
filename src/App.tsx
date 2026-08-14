@@ -9,6 +9,7 @@ import { NotreHistoire } from './components/sections/NotreHistoire';
 import { Programme } from './components/sections/Programme';
 import { Galerie } from './components/sections/Galerie';
 import { RSVPSection } from './components/sections/RSVPSection';
+import { GiftsSection } from './components/sections/GiftsSection';
 import { FooterSection } from './components/sections/FooterSection';
 
 export default function App() {
@@ -115,6 +116,7 @@ export default function App() {
             <Programme />
             <Galerie />
             <RSVPSection />
+            <GiftsSection />
           </main>
 
           {/* Footer Section */}
