@@ -86,7 +86,7 @@ export function Programme() {
 
                 <div className="pt-4 border-t border-[#EDE2D3]/50 flex items-center justify-between text-xs text-[#A4193D] font-semibold tracking-wider uppercase">
                   <span>{event.address}</span>
-                  <span className="text-lg">→</span>
+                  {/* <span className="text-lg">→</span> */}
                 </div>
               </motion.div>
             );
