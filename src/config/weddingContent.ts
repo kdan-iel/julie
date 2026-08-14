@@ -56,7 +56,7 @@ export const weddingContent = {
         year: '2017',
         date: '2017',
         description: 'Un moment simple qui a marqué le début d’une belle histoire. Depuis, notre complicité n’a cessé de grandir.',
-        imageUrl: '/photos/old.jpg',
+        imageUrl: '/photos/old.jpeg',
       },
       {
         id: 'proposal',
@@ -151,7 +151,7 @@ export const weddingContent = {
         id: '6',
         title: 'Souvenir',
         category: 'fiancailles',
-        imageUrl: '/photos/old.jpg',
+        imageUrl: '/photos/old.jpeg',
         caption: 'Ajoutez ici une dernière photo souvenir.',
       },
     ] as GalleryItem[],
