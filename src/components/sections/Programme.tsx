@@ -142,7 +142,7 @@ export function Programme() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-              {/* Pulsing Location Pin Overlay */}
+              {/* Pulsing Location Pin Overlay
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full bg-[#A4193D]/30 animate-ping absolute inset-0" />
@@ -153,7 +153,7 @@ export function Programme() {
                 <span className="mt-2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white font-serif-display text-sm tracking-wide border border-[#A4193D]/40 shadow-lg">
                   {weddingContent.venue.name}
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>

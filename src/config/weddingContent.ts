@@ -47,25 +47,26 @@ export const weddingContent = {
   timeline: {
     eyebrow: 'Notre Roman',
     title: 'Notre Histoire',
-    subtitle: 'Dans le silence de l’ombre et de la solitude, l’amour, telle une semence qui tombe en terre, cachée aux yeux des regards indiscrets, affrontant les vagues de chaleur et de douleur, l’emprise de la fissure et de la moisissure. Une destruction lente, comme rongée par la rouille, mitée et méprisable… pour finalement se laisser emporter par les torrents de la mort. Et alors que tout espoir semble perdu, un germe, une résurrection… des racines profondément enchâssées, une nouvelle vie qui surgit de terre… Plante exotique, aromate de choix, les délices d’une romance unique, que plusieurs se rassembleront pour célébrer… L’amour peut parfois prendre le temps, mais il en vaut la peine quand il est authentique… Notre histoire, notre promesse pour la vie. ❤️',
+    imgurl: '/photos/hist.jpeg',
+    // subtitle: 'Dans le silence de l’ombre et de la solitude, l’amour, telle une semence qui tombe en terre, cachée aux yeux des regards indiscrets, affrontant les vagues de chaleur et de douleur, l’emprise de la fissure et de la moisissure. Une destruction lente, comme rongée par la rouille, mitée et méprisable… pour finalement se laisser emporter par les torrents de la mort. Et alors que tout espoir semble perdu, un germe, une résurrection… des racines profondément enchâssées, une nouvelle vie qui surgit de terre… Plante exotique, aromate de choix, les délices d’une romance unique, que plusieurs se rassembleront pour célébrer… L’amour peut parfois prendre le temps, mais il en vaut la peine quand il est authentique… Notre histoire, notre promesse pour la vie. ❤️',
     milestones: [
       {
         id: 'meeting',
         year: '2019',
-        date: '14 Octobre 2019',
+        date: '2019',
         title: 'La Première Rencontre',
         location: 'Lomé, Togo',
         description: 'Un moment simple qui a marqué le début d’une belle histoire. Depuis, notre complicité n’a cessé de grandir.',
-        imageUrl: '/photos/histoire.jpeg',
+        imageUrl: '/photos/old.jpeg',
       },
       {
         id: 'proposal',
         year: '2026',
         date: '2026',
-        title: 'Une nouvelle étape',
+        title: 'Fiançailles',
         location: 'Lomé, Togo',
         description: 'Notre histoire continue de s’écrire avec amour, confiance et la joie de construire notre avenir ensemble.',
-        imageUrl: '/photos/dot.jpeg',
+        imageUrl: '/photos/tgt.jpeg',
       },
       {
         id: 'wedding',
@@ -74,7 +75,7 @@ export const weddingContent = {
         title: 'Le Grand Jour',
         location: 'Lomé, Togo',
         description: 'Nous sommes impatients de sceller notre amour entourés de nos familles et amis les plus chers.',
-        imageUrl: '/photos/tgt.jpeg',
+        imageUrl: '/photos/histoire.jpeg',
       },
     ] as TimelineMilestone[],
   },
@@ -88,7 +89,7 @@ export const weddingContent = {
         time: '10h00',
         title: 'Cérémonie de bénédiction nuptiale',
         locationName: 'Lomé, Togo',
-        address: 'Les informations pratiques seront communiquées aux invités.',
+        // address: 'Les informations pratiques seront communiquées aux invités.',
         description: 'Un moment de bénédiction et de célébration de notre union avec nos familles et nos proches.',
         iconName: 'church',
       },
@@ -97,7 +98,7 @@ export const weddingContent = {
         time: 'Après la cérémonie',
         title: 'Rafraîchissement',
         locationName: 'Lomé, Togo',
-        address: 'Lieu du rassemblement',
+        // address: 'Lieu du rassemblement',
         description: 'Petit cocktail servi juste après la fin de la cérémonie.',
         iconName: 'cheers',
       },
@@ -153,7 +154,7 @@ export const weddingContent = {
   },
   gifts: {
     title: 'Cadeaux & Cagnotte',
-    description: 'Votre présence est de loin pour nous le plus beau des cadeaux. Toutefois, si vous souhaitez ajouter de la lumière à notre journée par un cadeau matériel, sentez-vous libre de le faire selon votre convenance. Si votre contribution est financière, vous pouvez participer à notre cagnotte par les différents moyens ci-dessous. Quel que soit le geste d’amour que vous aurez choisi de nous témoigner, il reste précieux à nos yeux.',
+    description: 'Votre présence est de loin pour nous le plus beau des cadeaux. Toutefois, si vous souhaitez rajouter de la lumière à notre journée par un cadeau matériel, sentez-vous libre de le faire selon votre convenance. Si votre contribution est financière, vous pouvez participer à notre cagnotte par les différents moyens ci-dessous. Quel que soit le geste d’amour que vous aurez choisi de nous témoigner, il reste précieux à nos yeux.',
     transferDetails: [
       {
         provider: 'Mixx by Yas',
