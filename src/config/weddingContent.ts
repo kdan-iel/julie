@@ -38,7 +38,7 @@ export const weddingContent = {
   hero: {
     invitation: 'Ont le plaisir de vous inviter à leur cérémonie de bénédiction nuptiale',
     ceremonyDate: 'Le samedi 12 septembre 2026',
-    coupleImageUrl: '/photos/couple.jpg',
+    coupleImageUrl: '/photos/couple1.jpeg',
     venueBadge: 'LOMÉ, TOGO',
     ctaRsvp: 'Confirmer votre présence',
     ctaStory: 'Découvrir notre histoire',
@@ -132,14 +132,14 @@ export const weddingContent = {
         id: '3',
         title: 'Fiançailles',
         category: 'fiancailles',
-        imageUrl: '/photos/ens.jpeg',
+        imageUrl: '/photos/mr.jpeg',
         // caption: 'Ajoutez ici une photo de vos fiançailles.',
       },
        {
         id: '4',
         title: 'Fiançailles',
         category: 'fiancailles',
-        imageUrl: '/photos/mr.jpeg',
+        imageUrl: '/photos/ens.jpeg',
         // caption: 'Ajoutez ici une photo de vos fiançailles.',
       },
       {
