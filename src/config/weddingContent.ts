@@ -38,7 +38,7 @@ export const weddingContent = {
   hero: {
     invitation: 'Ont le plaisir de vous inviter à leur cérémonie de bénédiction nuptiale',
     ceremonyDate: 'Le samedi 12 septembre 2026',
-    coupleImageUrl: '/photos/couple1.jpeg',
+    coupleImageUrl: '/photos/couple.jpg',
     venueBadge: 'LOMÉ, TOGO',
     ctaRsvp: 'Confirmer votre présence',
     ctaStory: 'Découvrir notre histoire',
@@ -47,7 +47,7 @@ export const weddingContent = {
   timeline: {
     eyebrow: 'Notre Roman',
     title: 'Notre Histoire',
-    subtitle: 'Dans le silence de l’ombre et de la solitude, l’amour, telle une semence qui tombe en terre, cachée aux yeux des regards indiscrets, affrontant les vagues de chaleur et de douleur, l’emprise de la fissure et de la moisissure. ❤️  Une destruction lente, comme rongée par la rouille, mitée et méprisable… pour finalement se laisser emporter par les torrents de la mort. Et alors que tout espoir semble perdu, un germe, une résurrection… des racines profondément enchâssées, une nouvelle vie qui surgit de terre…  ❤️   Plante exotique, aromate de choix, les délices d’une romance unique, que plusieurs se rassembleront pour célébrer…   ❤️   L’amour peut parfois prendre le temps, mais il en vaut la peine quand il est authentique… Notre histoire, notre promesse pour la vie. ❤️',
+    subtitle: 'Dans le silence de l’ombre et de la solitude, l’amour, telle une semence qui tombe en terre, cachée aux yeux des regards indiscrets, affrontant les vagues de chaleur et de douleur, l’emprise de la fissure et de la moisissure. ❤️             Une destruction lente, comme rongée par la rouille, mitée et méprisable… pour finalement se laisser emporter par les torrents de la mort. Et alors que tout espoir semble perdu, un germe, une résurrection… des racines profondément enchâssées, une nouvelle vie qui surgit de terre…  ❤️   Plante exotique, aromate de choix, les délices d’une romance unique, que plusieurs se rassembleront pour célébrer…   ❤️   L’amour peut parfois prendre le temps, mais il en vaut la peine quand il est authentique…     Notre histoire, notre promesse pour la vie. ❤️',
     milestones: [
       {
         id: 'meeting',
