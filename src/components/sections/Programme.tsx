@@ -53,7 +53,7 @@ export function Programme() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] font-semibold text-[#A4193D]">
-                Lieu du rassemblement
+                Lieu de Cérémonie 
               </span>
               <h3 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#2C2A29] mt-2 mb-4">
                 {weddingContent.venue.name}
