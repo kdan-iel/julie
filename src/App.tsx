@@ -115,8 +115,8 @@ export default function App() {
             <NotreHistoire />
             <Programme />
             <Galerie />
-            <RSVPSection />
             <GiftsSection />
+            <RSVPSection />
           </main>
 
           {/* Footer Section */}
